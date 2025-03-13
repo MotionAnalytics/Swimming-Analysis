@@ -24,27 +24,11 @@ A multi-sheet Excel file containing:
 - Enables users to **explore data interactively**.
 
 ## 🚀 How to View the Demo
-1. Visit the **GitHub Pages site**: [Link will be added after deployment]
+1. Visit the **GitHub Pages site**: [https://motionanalytics.github.io/Swimming-Analysis/]
 2. Watch the **annotated video**.
 3. Download the **Excel file**.
 4. Explore the **interactive report**.
 
-## 📂 Repository Structure
-```
-/swimming-analysis-demo
- ├── docs/
- │   ├── index.html        # Main webpage
- │   ├── output.mp4  # Example annotated video
- │   ├── output.xlsx       # Example Excel file
- │   ├── report.html       # Interactive report (Plotly visualization)
-```
-
-## 🛠️ Setup for Local Development
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/swimming-analysis-demo.git
-   ```
-2. Open `docs/index.html` in a browser.
 
 ---
 🎯 **Goal**: Provide an easy-to-access **visual and analytical** demonstration of swimming biomechanics insights. 🚀
