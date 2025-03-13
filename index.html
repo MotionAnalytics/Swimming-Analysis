@@ -68,10 +68,10 @@
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Ben-Gurion University of the Negev<br><!-- Conferance name and year</span> --!>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <span class="author-block">Ben-Gurion University of the Negev<br><!-- Conferance name and year</span> -->
+                    <!--<span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>-->
                   </div>
-				<!--
+				        <!--
                   <div class="column has-text-centered">
                     <div class="publication-links">
                       <span class="link-block">
@@ -83,7 +83,8 @@
                         <span>Paper</span>
                       </a>
                     </span>
-
+				        -->
+				        <!--
                     <span class="link-block">
                       <a href="static/pdfs/supplementary_material.pdf" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
@@ -93,17 +94,17 @@
                       <span>Supplementary</span>
                     </a>
                   </span>
-
+				        -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/MotionAnalytics/Swimming-Analysis.git" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Additional information</span>
                   </a>
                 </span>
-
+				      <!--
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
@@ -111,7 +112,7 @@
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
-				  -->
+				      -->
                 </a>
               </span>
             </div>
@@ -163,34 +164,37 @@
 
 
 <!-- Image carousel -->
+
 <section class="hero is-small">
   <div class="hero-body">
+    <h2 class="title is-3">Table Report</h2>
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/skeleton_table.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Skeleton table represent the joints positions at x,y image coordinates and confidance value.
-        </h2>
+        <div class="item" onclick="window.location.href='static/videos/output.xlsx'">
+          <!-- Your image here -->
+          <img src="static/images/skeleton_table.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered"></h2>
+            Skeleton table represent the joints positions at x,y image coordinates and confidence value.
+          </h2>
+        </div>
+        <div class="item" onclick="window.location.href='static/videos/output.xlsx'">
+          <!-- Your image here -->
+          <img src="static/images/event_log.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered"></h2>
+            Event log indicates in which frame of the video an event was detected.
+          </h2>
+        </div>
+        <div class="item" onclick="window.location.href='static/videos/output.xlsx'">
+          <!-- Your image here -->
+          <img src="static/images/parameters.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Parameters indicates computed features extracted from the video.
+          </h2>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/event_log.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-			Event log indicates in which frame of the video an event was detected.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/parameters.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Parameters indicates computed features extracted from the video.
-       </h2>
-     </div>
+    </div>
   </div>
-</div>
-</div>
+</section>
 </section>
 <!-- End image carousel -->
 
