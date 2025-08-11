@@ -96,14 +96,23 @@
                   </span>
 				        -->
                   <span class="link-block">
-                    <a href="https://github.com/MotionAnalytics/Swimming-Analysis.git" target="_blank"
+                    <a href="https://www.motionanalytics.tempurl.co.il/" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
-                      <i class="fab fa-github"></i>
+                      <i class="fas fa-globe"></i>
                     </span>
-                    <span>Additional information</span>
+                    <span>Official Website</span>
                   </a>
                 </span>
+                <span class="link-block">
+                  <a href="https://app.motionanalytics.online/" target="_blank"
+                  class="external-link button is-normal is-rounded is-link">
+                  <span class="icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </span>
+                  <span>App</span>
+                </a>
+              </span>
 				      <!--
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
@@ -144,23 +153,93 @@
 <!-- End teaser video -->
 
 
+<!-- New: How to Use section moved from Data Outputs -->
+  <section class="section pt-0">
+    <div class="container is-max-desktop">
+      <h2 class="title is-4">How to Use This Demo</h2>
+      <ol class="content">
+        <li>Play the annotated video above (click to open full interactive report in a new tab).</li>
+        <li>Download the Excel file by clicking any of the table images.</li>
+        <li>Open the interactive report to correlate video frames with biomechanical plots.</li>
+      </ol>
+    </div>
+  </section>
+  <!-- End How to Use section -->
 
-<!-- Paper abstract 
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+
+<!-- Added: Data outputs explanations from README -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Data Outputs</h2>
+      <div class="content">
+        <h3 class="title is-4">1. Annotated Video</h3>
+        <p>A processed version of the input swimming video with joint positions and key joint/segment angles overlaid. Use it for quick visual inspection of technique.</p>
+
+        <h3 class="title is-4">2. Excel Output</h3>
+        <p>A multi-sheet Excel file containing:</p>
+        <ul>
+          <li><strong>Temporal Data:</strong> Frame-by-frame biomechanical features. Each numeric value has an associated confidence value.
+            <ul>
+              <li><strong>Joint Positions (Skeleton):</strong> x, y image coordinates of detected joints.</li>
+              <li><strong>Standardized Joint Positions (Skeleton):</strong> Joint coordinates after view-specific centering and scaling to enable comparison across frames and athletes.
+                <ul>
+                  <li><strong>Transverse view:</strong> Centered at the midpoint of the shoulders; scaled (divided) by shoulder width (distance between left and right shoulders).</li>
+                  <li><strong>Sagittal view:</strong> Centered at the hip; scaled by the average torso length (hip to shoulder).</li>
+                </ul>
+              </li>
+              <li><strong>Joint Angles (Pose):</strong> Computed per frame for key joints.</li>
+              <li><strong>Segment Orientation (Orientation):</strong> Body segment angles relative to the image frame.</li>
+            </ul>
+          </li>
+          <li><strong>Event Log:</strong> Binary markers (0 = non-event, 1 = event):
+            <ul>
+              <li><em>start / end event</em>: Frames delimiting analyzed portion.</li>
+              <li><em>first / last detection</em>: First/last frame the detection model found the swimmer.</li>
+              <li><em>first / last keypoint</em>: First/last frame any pose keypoint was detected.</li>
+            </ul>
+          </li>
+          <li><strong>Static Parameters:</strong> Whole-video metrics (e.g., stroke rate).</li>
+        </ul>
+
+        <h3 class="title is-4">3. Interactive Report</h3>
+        <p>An HTML report synchronizing the annotated video with Plotly figures (temporal biomechanical trends). Scroll, pause, and hover to explore the data.</p>
+        <p><strong>Standardized coordinates</strong> indicate joint coordinates were centered and scaled for comparability:
+        <ul>
+          <li><strong>Side (sagittal) view:</strong> Centered at hip; scaled by average torso length (hip to shoulder).</li>
+          <li><strong>Front (transverse) view:</strong> Centered at the midpoint of shoulders; scaled by the distance between shoulders.</li>
+        </ul>
+        </p>
+
+        <h3 class="title is-4">Angle & Orientation Definitions</h3>
+        <p>The following illustrations define how joint angles and segment orientations are computed for different camera views. These visual guides correspond to the variables reported in the Excel and interactive reports.</p>
+        <!-- Replaced static grid with carousel -->
+        <div id="angle-orientation-carousel" class="carousel angle-orientation-carousel" data-autoplay="false">
+          <div class="item has-text-centered" aria-label="Sagittal joint angle definitions">
+            <figure>
+              <img src="static/images/sagittal_pose.png" alt="Sagittal (side view) joint angle definitions" style="max-width:760px; width:100%; height:auto; margin:0 auto;">
+              <figcaption class="is-size-6 mt-3">Sagittal view: Projected joint angle definitions (e.g., shoulder, elbow, hip, knee).</figcaption>
+            </figure>
+          </div>
+          <div class="item has-text-centered" aria-label="Sagittal segment orientation definitions">
+            <figure>
+              <img src="static/images/sagittal_orientation.png" alt="Sagittal (side view) segment orientation definitions" style="max-width:760px; width:100%; height:auto; margin:0 auto;">
+              <figcaption class="is-size-6 mt-3">Sagittal view: Segment orientations relative to the image frame (torso, upper arm, thigh, etc.).</figcaption>
+            </figure>
+          </div>
+          <div class="item has-text-centered" aria-label="Transverse joint angle definitions">
+            <figure>
+              <img src="static/images/transverse_pose.png" alt="Transverse (front view) joint angle definitions" style="max-width:760px; width:100%; height:auto; margin:0 auto;">
+              <figcaption class="is-size-6 mt-3">Transverse view: Projected joint angle definitions (e.g., shoulder, elbow, wrist).</figcaption>
+            </figure>
+          </div>
         </div>
+        <br>
+        <p class="is-size-7 has-text-grey has-text-centered mt-4">Swipe / use arrows to view all definitions.</p>
+        <!-- End carousel replacement -->
       </div>
     </div>
-  </div>
-</section>
- End paper abstract -->
+  </section>
+  <!-- End added section -->
 
 
 <!-- Image carousel -->
@@ -170,28 +249,23 @@
     <h2 class="title is-3">Table Report</h2>
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item" onclick="window.location.href='static/videos/output.xlsx'">
+        <div class="item" onclick="window.location.href='static/videos/output.xlsx'" role="button" aria-label="Open Excel: Skeleton Table">
           <!-- Your image here -->
-          <img src="static/images/skeleton_table.png" alt="MY ALT TEXT"/>
-          <h2 class="subtitle has-text-centered"></h2>
-            Skeleton table represent the joints positions at x,y image coordinates and confidence value.
-          </h2>
+          <img src="static/images/skeleton_table.png" alt="Skeleton table preview"/>
+          <h2 class="subtitle has-text-centered">Skeleton table: joint (x,y) image coordinates with confidence values.</h2>
         </div>
-        <div class="item" onclick="window.location.href='static/videos/output.xlsx'">
+        <div class="item" onclick="window.location.href='static/videos/output.xlsx'" role="button" aria-label="Open Excel: Event Log">
           <!-- Your image here -->
-          <img src="static/images/event_log.png" alt="MY ALT TEXT"/>
-          <h2 class="subtitle has-text-centered"></h2>
-            Event log indicates in which frame of the video an event was detected.
-          </h2>
+          <img src="static/images/event_log.png" alt="Event log preview"/>
+          <h2 class="subtitle has-text-centered">Event log: frames where analysis or detection events occur.</h2>
         </div>
-        <div class="item" onclick="window.location.href='static/videos/output.xlsx'">
+        <div class="item" onclick="window.location.href='static/videos/output.xlsx'" role="button" aria-label="Open Excel: Parameters">
           <!-- Your image here -->
-          <img src="static/images/parameters.png" alt="MY ALT TEXT"/>
-          <h2 class="subtitle has-text-centered">
-            Parameters indicates computed features extracted from the video.
-          </h2>
+          <img src="static/images/parameters.png" alt="Parameters table preview"/>
+          <h2 class="subtitle has-text-centered">Parameters: computed whole-video metrics (e.g., stroke rate).</h2>
         </div>
       </div>
+      <p class="has-text-centered is-size-7 mt-4">Click any table to download the full multi-sheet Excel file.</p>
     </div>
   </div>
 </section>
