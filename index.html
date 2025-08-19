@@ -264,6 +264,119 @@
 
 <!-- Image carousel -->
 
+<!-- Parameter Explanations Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3" id="parameter-explanations">Parameter Explanations</h2>
+    <div class="content parameter-accordion">
+      <details open>
+        <summary>📊 <strong>General Video Parameters</strong></summary>
+        <ul>
+          <li><strong>fps</strong>: Frames per second of the video.</li>
+          <li><strong>Image width / height [px]</strong>: Frame dimensions in pixels.</li>
+          <li><strong>Number of frames</strong>: Total analyzed frames.</li>
+          <li><strong>Anatomical plane</strong>: Camera viewpoint (<em>sagittal</em> or <em>transverse</em>).</li>
+          <li><strong>Visible side</strong>: Side most visible to the camera.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>🚩 <strong>Suspicious Sample (Quality Flag)</strong> Binary flag (1 = potentially unreliable sample)</summary>
+        <!--
+        <p>Binary flag (1 = potentially unreliable sample).</p>
+        <ul>
+          <li><strong>Sagittal:</strong> Hand switch, non continuous cycle, inter arm phase error, or event order error.</li>
+          <li><strong>Transverse:</strong> Event order error or other detected inconsistencies.</li>
+        </ul>
+        -->
+      </details>
+
+      <details open>
+        <summary>🏊 <strong>Stroke Rate (SR) [SPM]</strong></summary>
+        <p>
+          <code>SR = (1 / AvgCycleTime) * 60</code>.
+        </p>
+
+        <ul>
+          <li><strong>Sagittal:</strong> Consecutive hand entry events.</li>
+          <li><strong>Transverse:</strong> Uses push events; arm with more pushes.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>💪 <strong>Push Percentage [%]</strong></summary>
+        <p>
+          Timing of push relative to cycle start (hand entry = 0%). 
+          <br>
+           <code>(Entry→Push / CycleTime) * 100</code>.
+        </p>
+        <p>Same computation in both planes.</p>
+      </details>
+
+      <details open>
+        <summary>🙌 <strong>Recovery Percentage [%]</strong></summary>
+        <p>Timing of recovery (hand exit) within cycle.</p>
+        <ul>
+          <li><strong>Sagittal:</strong> Computed from entry-based cycle.</li>
+          <li><strong>Transverse:</strong> Not computed as recovery event now fully visible in the transverse plane.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>🤝 <strong>Pseudo Index of Coordination (pIdC) [%]</strong></summary>
+        <p>
+          Temporal relation between left & right push phases.
+          <br>
+           <code>pIdC = 100 * ((TimeLag - 0.5*CycleTime)/CycleTime)</code>.
+        </p>
+        <ul>
+          <li>Negative: catch-up</li>
+          <li>~0: opposition</li>
+          <li>Positive: superposition</li>
+        </ul>
+        <p>Same method in both planes.</p>
+      </details>
+
+      <details open>
+        <summary>🦵 <strong>Kick Rate (KR) [KPM] & Kicks Per Cycle (KPC)</strong></summary>
+        <ul>
+          <li><strong>KR:</strong> Ankle minima frequency → kicks/min (sagittal only).</li>
+          <li><strong>KPC:</strong> <code>round(KR / SR)</code>.</li>
+          <li><strong>Transverse:</strong> Not computed.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>👇 <strong>Wrist Push Depth</strong></summary>
+        <ul>
+          <li><strong>Sagittal:</strong> Standardized by torso length.</li>
+          <li><strong>Transverse:</strong> Standardized by shoulder width.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>🔄 <strong>Entry Inter Arm Phase</strong></summary>
+        <p>Upper-arm angle at each hand entry.</p>
+        <ul>
+          <li><strong>Sagittal:</strong> Sampled from pre-computed time series at entry frames.</li>
+          <li><strong>Transverse:</strong> Not computed.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>🦾 <strong>Elbow Push Angle [deg]</strong></summary>
+        <ul>
+          <li><strong>Sagittal:</strong> Not computed.</li>
+          <li><strong>Transverse:</strong> Elbow angle at push (high-confidence only).</li>
+        </ul>
+      </details>
+
+      <p class="is-size-7 has-text-grey mt-4">Note: Timings derive from frame indices & fps; percentages normalized per arm cycle unless noted.</p>
+    </div>
+  </div>
+</section>
+<!-- End Parameter Explanations Section -->
+
 <section class="hero is-small">
   <div class="hero-body">
     <h2 class="title is-3">Table Report</h2>
