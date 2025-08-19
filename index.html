@@ -144,7 +144,7 @@
           <source src="static/videos/output.mp4" type="video/mp4">
         </video>
         <h2 class="subtitle has-text-centered">
-			Click on the video to open full priview
+			Click on the video to open the full interactive report (all the swimmer data)
         </h2>
       </a>
     </div>
@@ -156,10 +156,10 @@
 <!-- New: How to Use section moved from Data Outputs -->
   <section class="section pt-0">
     <div class="container is-max-desktop">
-      <h2 class="title is-4">How to Use This Demo</h2>
+      <h2 class="title is-4">How to Use This System</h2>
       <ol class="content">
-        <li>Play the annotated video above (click to open full interactive report in a new tab).</li>
-        <li>Download the Excel file by clicking any of the table images.</li>
+        <li>1.	Open the interactive report to relate video frames with biomechanical data (plots).</li>
+        <li>Download the Excel file of all data by clicking <button id="download">Download🔽</button> (bottom left).</li>
         <li>Open the interactive report to correlate video frames with biomechanical plots.</li>
       </ol>
     </div>
@@ -173,14 +173,21 @@
       <h2 class="title is-3">Data Outputs</h2>
       <div class="content">
 
-        <h3 class="title is-4">1. Interactive Report</h3>
-        <p>An HTML report synchronizing the annotated video with Plotly figures (temporal biomechanical trends). Scroll, pause, and hover to explore the data.</p>
+        <h3 class="title is-4">1. What is the Interactive Report?</h3>
+        <p>
+          An HTML report that synchronizes the annotated video with plots of temporal biomechanical parameters(for example joint angle in time).
+          By choosing a parameter in the report legend, you can change what parameters are presented in the plot.
+        </p>
+        <figure>
+              <img src="static/images/Figure_example.png" alt="Sagittal (side view) joint angle definitions" style="max-width:760px; width:100%; height:auto; margin:0 auto;">
+              <figcaption class="is-size-6 mt-3">Sagittal view: Projected joint angle - Right and left shoulders.</figcaption>
+        </figure>
 
         <ul>
-          <li>Press the 🔽Download button on the left to obtain the Excel Output.</li>
+          <li>Press the <button id="download">Download🔽</button> on the left to obtain the Excel Output.</li>
           <li>At each data facet, you can choose specific trajectories type to visualize</li>
           <ul>Full explanations on the different data types are available at next section</ul>
-          <li><span style="color:red;">Parameters table is painted at red</span> - The video was classified as a non valid sample</li>
+          <li>If the <span style="color:red;">Parameters table is painted at red</span> (top right corner) - The video was classified as a non-valid sample</li>
 
         </ul>
         
@@ -213,11 +220,18 @@
 
 
         <h3 class="title is-4">3. Annotated Video</h3>
-        <p>A processed version of the input swimming video with joint positions and key joint/segment angles overlaid. Use it for quick visual inspection of technique.</p>
+        <p>
+          A processed version of the input swimming video with joint positions and key joint/segment angles overlaid.
+          Use it for quick visual inspection of technique,and the accuracy of the system key point annotations.
+        </p>
 
 
         <h3 class="title is-4">Angle & Orientation Definitions</h3>
-        <p>The following illustrations define how joint angles and segment orientations are computed for different camera views. These visual guides correspond to the variables reported in the Excel and interactive reports.</p>
+        <p>
+          The following three figures define how joint angles and segment orientations
+           are computed for two camera views.
+            These visual guides correspond to the variables reported in the Excel and interactive reports.
+        </p>
         <!-- Replaced static grid with carousel -->
         <div id="angle-orientation-carousel" class="carousel angle-orientation-carousel" data-autoplay="false">
           <div class="item has-text-centered" aria-label="Sagittal joint angle definitions">
