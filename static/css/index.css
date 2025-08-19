@@ -121,5 +121,40 @@ body {
   font-size: smaller;
 }
 
+/* Angle & Orientation carousel pagination adjustments */
+#angle-orientation-carousel {
+  position: relative;
+}
+
+/* Put dots in normal document flow below the figure instead of overlaying (actual class names: slider-pagination/slider-page) */
+#angle-orientation-carousel .slider-pagination {
+  position: static !important; /* stop absolute overlay */
+  display: flex !important;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0.6rem;
+  margin-bottom: 0.25rem;
+  padding: 0;
+  z-index: 1; /* keep above background */
+}
+
+/* Ensure figure + caption have spacing before dots are inserted */
+#angle-orientation-carousel .item figure { margin: 0 0 0.25rem 0; }
+#angle-orientation-carousel .item figcaption { margin-top: 0.5rem; }
+
+/* Dot styling */
+#angle-orientation-carousel .slider-pagination .slider-page {
+  background-color: rgba(0,0,0,0.35) !important;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+#angle-orientation-carousel .slider-pagination .slider-page.is-active {
+  background-color: #3273dc !important;
+}
+
+/* Fallback for earlier selector attempts (if plugin outputs .carousel-pagination) */
+#angle-orientation-carousel .carousel-pagination { position: static !important; }
+
 
 
